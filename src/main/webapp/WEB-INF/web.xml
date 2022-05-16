@@ -4,6 +4,16 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
 
+    <servlet>
+        <display-name>Job Status Servlet</display-name>
+        <servlet-name>jobStatusServlet</servlet-name>
+        <servlet-class>com.ccgautomation.servlets.JobStatusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jobStatusServlet</servlet-name>
+        <url-pattern>/jobStatus</url-pattern>
+    </servlet-mapping>
+
     <security-constraint>
        <web-resource-collection>
           <web-resource-name>WEB</web-resource-name>
@@ -25,6 +35,6 @@
     </login-config>
 
     <welcome-file-list>
-        <welcome-file>controller</welcome-file>
+        <welcome-file>jobStatus</welcome-file>
     </welcome-file-list>
 </web-app>
