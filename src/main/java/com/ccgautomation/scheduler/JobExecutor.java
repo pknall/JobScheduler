@@ -72,6 +72,7 @@ public class JobExecutor {
                 jobToSubmitForExecution.setThreadStatus(ThreadStatus.QUEUED);
                 jobToSubmitForExecution.setRunningJob(() -> runJob(jobToSubmitForExecution));     // Give Job a reference to Runnable
                 threadPoolExecutor.execute(jobToSubmitForExecution.getRunningJob());              // Added to Executor
+                //jobToSubmitForExecution.setFutureResults(threadPoolExecutor.submit(jobToSubmitForExecution));  // Callable
             }
             try {
                 TimeUnit.MILLISECONDS.sleep(1000);

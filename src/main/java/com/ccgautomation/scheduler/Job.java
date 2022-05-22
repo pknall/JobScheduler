@@ -9,6 +9,7 @@ import java.util.concurrent.Future;
  * (2) To Callback and fetch the results (if any)
  *
  */
+//public class Job implements Runnable {
 public class Job implements Runnable {
 
     private String name;
@@ -19,7 +20,7 @@ public class Job implements Runnable {
     private Runnable runningJob = null;
 
     public Job(int message) {
-        this.name = "Thread";
+        this.name = "Thread" + new Date().getTime();
         this.message = message;
         threadStatus = ThreadStatus.QUEUED;
     }
@@ -28,6 +29,7 @@ public class Job implements Runnable {
         this(3000);
     }
 
+    // Part of Runnable
     @Override
     public void run() {
         System.out.println(Thread.currentThread() + " [RECEIVED] Message = " + message);
