@@ -1,7 +1,10 @@
 // this bit of complexity is to pull down the main build script from the alclabs maven repository
 // and then apply it.
 configurations { gradleScript }
-repositories { maven { url 'http://repo.alcshare.com'} }
+repositories {
+    mavenCentral()
+    maven { url 'http://repo.alcshare.com'}
+}
 dependencies { gradleScript group: 'com.alcshare', name: 'addon-gradle', ext: 'gradle', version: '1.7' }
 apply from: configurations.gradleScript.resolve().iterator().next()
 
@@ -14,12 +17,18 @@ info {
   vendor = 'CCG Automation.com'
 }
 
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-   compile 'jstl:jstl:1.1.2'
-   compile 'taglibs:standard:1.1.2'
-   testCompile 'junit:junit:3.8.1'
-   providedCompile 'javax.servlet:servlet-api:2.5'
+    compile 'jstl:jstl:1.1.2'
+    compile 'taglibs:standard:1.1.2'
+    testCompile 'org.spockframework:spock-core:0.6-groovy-1.8'
+    testCompile 'junit:junit:4.12'
+    providedCompile 'javax.servlet:servlet-api:2.5'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
+
 }
